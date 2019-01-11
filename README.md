@@ -2,4 +2,5 @@
 ```shell
 cd build
 cmake ..
+make
 ```
