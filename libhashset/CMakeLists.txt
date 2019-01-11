@@ -1,8 +1,10 @@
-cmake_minimum_required(VERSION 2.8)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
-add_definitions(-fPIC -g)
-set(SRCLIST src/lhset.c)
+SET(LIBRARY_OUTPUT_PATH "${PROJECT_BINARY_DIR}/lib")
+MESSAGE(STATUS "lib out path: ${LIBRARY_OUTPUT_PATH}")
 
-# Static Library Output
-add_library(lhset STATIC ${SRCLIST})
-target_include_directories(lhset PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src/")
+AUX_SOURCE_DIRECTORY(${PROJECT_SOURCE_DIR}/libhashset/src LIBHASHSET_SRC)
+
+ADD_LIBRARY(hashset SHARED ${LIBHASHSET_SRC})
+ADD_LIBRARY(hashset_static STATIC ${LIBHASHSET_SRC})
+SET_TARGET_PROPERTIES(hashset_static PROPERTIES OUTPUT_NAME "hashset")

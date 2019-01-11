@@ -1,4 +1,8 @@
-cmake_minimum_required(VERSION 2.8)
-add_subdirectory(libbloom)
-add_subdirectory(libcvector)
-add_subdirectory(libhashset)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+PROJECT(light)
+
+ADD_SUBDIRECTORY(libbloom)
+ADD_SUBDIRECTORY(libcvector)
+#ADD_SUBDIRECTORY(libconhash)
+ADD_SUBDIRECTORY(libhashset)
+ADD_SUBDIRECTORY(libthreadpool)
